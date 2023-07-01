@@ -750,16 +750,12 @@ button {
     background-position: -152px -288px;
     float: right;
   }
-}
-@media (max-width: 479px) {
   .buttonNone {
     appearance: none;
     border: 0;
     padding: 0;
     background: none;
   }
-}
-@media (max-width: 479px) {
   .button--burger {
     display: block;
     width: 1.25rem;
@@ -768,11 +764,9 @@ button {
     position: relative;
     cursor: pointer;
   }
-}
-@media (max-width: 479px) {
   .button--burgerBarTop,
-.button--burgerBarMiddle,
-.button--burgerBarBottom {
+  .button--burgerBarMiddle,
+  .button--burgerBarBottom {
     background: #000;
     position: absolute;
     left: 0;
@@ -780,36 +774,24 @@ button {
     height: 10%;
     border-radius: 0.25rem;
   }
-}
-@media (max-width: 479px) {
   .button--burgerBarTop {
     top: 0;
   }
-}
-@media (max-width: 479px) {
   .button--burgerBarMiddle {
     top: 50%;
     transform: translateY(-50%);
   }
-}
-@media (max-width: 479px) {
   .button--burgerBarBottom {
     top: 100%;
     transform: translateY(-100%);
   }
-}
-@media (max-width: 479px) {
   .button--burger.is-active .button--burgerBarTop {
     top: 50%;
     transform: translateY(-50%) rotate(45deg);
   }
-}
-@media (max-width: 479px) {
   .button--burger.is-active .button--burgerBarMiddle {
     transform: translate(-100%, -50%);
   }
-}
-@media (max-width: 479px) {
   .button--burger.is-active .button--burgerBarBottom {
     top: 50%;
     transform: translateY(-50%) rotate(-45deg);
@@ -957,7 +939,7 @@ button {
 
 @media (max-width: 479px) {
   .left.is-active,
-.right.is-active {
+  .right.is-active {
     display: none;
   }
 }
@@ -1121,7 +1103,7 @@ button {
   border: 0;
   width: 20px;
   height: 17px;
-  background: url(/assets/images/bg_btn.png) no-repeat;
+  background: url("../../assets/images/bg_btn.png") no-repeat;
 }
 .home__new__control__button-box button:nth-child(1) {
   background-position: 0px -202px;
@@ -1282,14 +1264,14 @@ button {
   right: 10px;
   bottom: 10px;
   z-index: 1;
-  background: url("/assets/images/bg_btn.png") no-repeat 0px -276px;
+  background: url("../../assets/images/bg_btn.png") no-repeat 0px -276px;
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
   align-items: center;
 }
 .play-button a:hover {
-  background: url("/assets/images/bg_btn.png") no-repeat 0px -318px;
+  background: url("../../assets/images/bg_btn.png") no-repeat 0px -318px;
 }
 
 /* 아티스트 영역 */
@@ -1337,7 +1319,7 @@ button {
   padding: 0;
   width: 16px;
   height: 16px;
-  background: url("/assets/images/bg_btn.png") no-repeat left -171px;
+  background: url("../../assets/images/bg_btn.png") no-repeat left -171px;
   transform: translateY(3px);
   margin-left: 5px;
 }
@@ -1410,11 +1392,11 @@ button {
   display: block;
   width: 100%;
   height: 100%;
-  background: url("/assets/images/login-ad-image.png") no-repeat 0 0;
+  background: url(../../assets/images/login-ad-image.png) no-repeat 0 0;
 }
 @media (max-width: 1023px) {
   .home__login--ad > a {
-    background: url("/assets/images/ad-image.png") no-repeat 0 0/cover;
+    background: url("../../assets/images/ad-image.png") no-repeat 0 0/cover;
   }
 }
 .home__login--ad__ticket {
@@ -1916,7 +1898,7 @@ button {
   border: 0;
   width: 20px;
   height: 17px;
-  background: url(/assets/images/bg_btn.png) no-repeat;
+  background: url("./assets/images/bg_btn.png") no-repeat;
 }
 .home__hot__hot-issue-button-box button.home__hot__hot-issue-prev {
   background-position: left -202px;
@@ -2090,7 +2072,7 @@ button {
   width: 2.625rem;
   height: 0.75rem;
   font-weight: 100;
-  background-image: url(/assets/images/moreArrow.png);
+  background-image: url(../../assets/images/moreArrow.png);
   background-repeat: no-repeat;
   background-size: 28%;
   background-position: right center;
@@ -2127,7 +2109,7 @@ button {
   display: block;
   width: 1.3125rem;
   height: 1.3125rem;
-  background: url(/assets/images/melonChartIcon.png) no-repeat 0 -220px;
+  background: url(../../assets/images/melonChartIcon.png) no-repeat 0 -220px;
 }
 .home__hot__melon-chart .home__hot__melon-chart__list-area.artist .home__hot__melon-chart__item .home__hot__melon-chart__favorites:hover {
   background-position: -21px -220px;
@@ -4745,63 +4727,63 @@ button {
     align-items: center;
   }
   #check,
-td[headers=check] {
+  td[headers=check] {
     display: none;
   }
   #rank,
-td[headers=rank] {
+  td[headers=rank] {
     width: 3%;
     min-width: 20px;
   }
   #rank-change,
-td[headers=rank-change] {
+  td[headers=rank-change] {
     width: 6%;
     text-align: center;
   }
   #sing-album-cover,
-td[headers=sing-album-cover] {
+  td[headers=sing-album-cover] {
     width: 70px;
     order: -1;
   }
   #sing-info-link,
-td[headers=sing-info-link] {
+  td[headers=sing-info-link] {
     display: none;
   }
   #sing-info,
-td[headers=sing-info] {
+  td[headers=sing-info] {
     width: 30%;
   }
   #sing-album,
-td[headers=sing-album] {
+  td[headers=sing-album] {
     width: 19%;
   }
   #sing-like,
-td[headers=sing-like] {
+  td[headers=sing-like] {
     width: 14%;
   }
   #sing-listen,
-td[headers=sing-listen] {
+  td[headers=sing-listen] {
     width: 8%;
     text-align: center;
   }
   #sing-list-add,
-td[headers=sing-list-add] {
+  td[headers=sing-list-add] {
     display: none;
   }
   #sing-download,
-td[headers=sing-download] {
+  td[headers=sing-download] {
     display: none;
   }
   #sing-mv,
-td[headers=sing-mv] {
+  td[headers=sing-mv] {
     display: none;
   }
 }
 @media (max-width: 479px) {
   .chart__main__title-wrapper,
-.chart__main__time,
-.chart__main__music-button__wrapper,
-.chart__main__top100__thead {
+  .chart__main__time,
+  .chart__main__music-button__wrapper,
+  .chart__main__top100__thead {
     display: none;
   }
   .chart__main__top100__tbody tr {
@@ -4813,64 +4795,64 @@ td[headers=sing-mv] {
     min-width: 18rem;
   }
   #check,
-td[headers=check] {
+  td[headers=check] {
     display: none;
   }
   #rank,
-td[headers=rank] {
+  td[headers=rank] {
     width: 1.25rem;
     padding: 0;
     text-align: center;
   }
   #rank-change,
-td[headers=rank-change] {
+  td[headers=rank-change] {
     display: inline-block;
     width: 3%;
     text-align: center;
   }
   #rank-change .rank-up-num,
-#rank-change .rank-down-num,
-td[headers=rank-change] .rank-up-num,
-td[headers=rank-change] .rank-down-num {
+  #rank-change .rank-down-num,
+  td[headers=rank-change] .rank-up-num,
+  td[headers=rank-change] .rank-down-num {
     display: none;
   }
   #sing-album-cover,
-td[headers=sing-album-cover] {
+  td[headers=sing-album-cover] {
     width: 2.5rem;
     margin-right: 0.625rem;
     order: -1;
   }
   #sing-info-link,
-td[headers=sing-info-link] {
+  td[headers=sing-info-link] {
     display: none;
   }
   #sing-info,
-td[headers=sing-info] {
+  td[headers=sing-info] {
     width: 60%;
     padding-left: 10px;
   }
   #sing-album,
-td[headers=sing-album] {
+  td[headers=sing-album] {
     display: none;
   }
   #sing-like,
-td[headers=sing-like] {
+  td[headers=sing-like] {
     display: none;
   }
   #sing-listen,
-td[headers=sing-listen] {
+  td[headers=sing-listen] {
     width: 9%;
   }
   #sing-list-add,
-td[headers=sing-list-add] {
+  td[headers=sing-list-add] {
     display: none;
   }
   #sing-download,
-td[headers=sing-download] {
+  td[headers=sing-download] {
     display: none;
   }
   #sing-mv,
-td[headers=sing-mv] {
+  td[headers=sing-mv] {
     display: none;
   }
 }
