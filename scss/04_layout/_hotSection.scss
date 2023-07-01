@@ -450,7 +450,7 @@
     border: 0;
     width: 20px;
     height: 17px;
-    background: url(/assets/images/bg_btn.png) no-repeat;
+    background: url('../../assets/images/bg_btn.png') no-repeat;
 
     &.home__hot__hot-issue-prev {
       background-position: left -202px;
@@ -586,7 +586,7 @@
         transform: translateY(-2px);
 
         &::before {
-          content: "";
+          content: '';
           display: inline-block;
           width: rem(5px);
           height: rem(2px);
@@ -667,7 +667,7 @@
     width: rem(42px);
     height: rem(12px);
     font-weight: 100;
-    background-image: url(/assets/images/moreArrow.png);
+    background-image: url(../../assets/images/moreArrow.png);
     background-repeat: no-repeat;
     background-size: 28%;
     background-position: right center;
@@ -717,7 +717,7 @@
         display: block;
         width: rem(21px);
         height: rem(21px);
-        background: url(/assets/images/melonChartIcon.png) no-repeat 0 -220px;
+        background: url(../../assets/images/melonChartIcon.png) no-repeat 0 -220px;
 
         &:hover {
           background-position: -21px -220px;
