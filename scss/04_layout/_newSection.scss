@@ -1,0 +1,495 @@
+.home__new__section {
+  max-width: rem(1010px);
+  padding-top: rem(30px);
+  @include autoMargin;
+  color: $white;
+  display: flex;
+  flex-flow: row wrap;
+
+  @include tab {
+    padding: rem(30px) rem(20px) 0;
+  }
+
+  @include mobile {
+    padding: rem(10px) rem(20px) rem(40px);
+    max-width: rem(480px);
+  }
+
+  &__wrap {
+    display: flex;
+
+    @include tab {
+      width: 100%;
+    }
+    @include mobile {
+      width: 100%;
+    }
+  }
+}
+
+/* 최신음악 영역 */
+.home__new {
+  @include tab {
+    width: 100%;
+  }
+  @include mobile {
+    width: 100%;
+  }
+  &__wrap {
+    width: 474px;
+    height: 100%;
+    overflow: hidden;
+
+    .new__section__more {
+      display: none;
+    }
+
+    @include tab {
+      width: 100%;
+    }
+    @include mobile {
+      width: 100%;
+      .new__section__more {
+        display: block;
+        width: 40%;
+        height: rem(28px);
+        line-height: rem(28px);
+        border-radius: rem(30px);
+        text-align: center;
+        margin: rem(30px) auto 0;
+        border: 1px solid $secondary-font;
+        color: $secondary-font;
+
+        &:hover {
+          color: $primary-font;
+          border-color: $primary-font;
+        }
+      }
+    }
+  }
+
+  &__tab {
+    @include flexbox($justify: space-between);
+    margin-bottom: 5px;
+
+    @include mobile {
+      display: none;
+    }
+  }
+
+  &__title {
+    font-family: "NanumBarunGothic", sans-serif;
+    flex-grow: 1;
+
+    & a {
+      font-size: 15px;
+      font-weight: 500;
+      color: #000;
+      position: relative;
+
+      &::after {
+        content: "";
+        width: 7px;
+        height: 7px;
+        border-top: 1px solid $light-gray;
+        border-right: 1px solid $light-gray;
+        display: inline-block;
+        transform: rotate(45deg);
+        position: absolute;
+        top: 5px;
+        right: -8px;
+      }
+    }
+  }
+
+  &__button-group {
+    margin-right: 30px;
+    [type="button"] {
+      @include removeBtnStyle;
+      color: $light-gray;
+      font-size: rem(12px);
+      font-weight: 700;
+      margin-left: -2px;
+      @include paddingX(6px);
+      position: relative;
+
+      // &:nth-child(1) {
+      //   color: $primary-header;
+      // }
+
+      &:nth-child(1)::after,
+      &:nth-child(2)::after {
+        content: "";
+        position: absolute;
+        top: 1px;
+        right: 0px;
+        width: 1px;
+        height: rem(11px);
+        background: $light-gray;
+      }
+    }
+  }
+
+  &__slide__button.on {
+    color: $primary-header;
+  }
+
+  &__control {
+    @include flexbox($items: center);
+    color: $secondary-font;
+    font-size: rem(12px);
+
+    &__button-box {
+      transform: translateY(1px);
+      margin-left: 5px;
+
+      button {
+        appearance: none;
+        border: 0;
+        width: 20px;
+        height: 17px;
+        background: url(/assets/images/bg_btn.png) no-repeat;
+
+        &:nth-child(1) {
+          background-position: 0px -202px;
+          margin-right: -5px;
+        }
+
+        &:nth-child(2) {
+          background-position: right -220px;
+        }
+      }
+    }
+  }
+
+  &__inner {
+    @include flexbox;
+    position: relative;
+    left: 0;
+    transition: all 0.8s cubic-bezier(0.33, 1, 0.68, 1);
+
+    @include tab {
+      justify-content: space-between;
+
+      .home__new__slide {
+        flex-shrink: 0;
+        width: clamp(10rem, 100%, 70rem);
+      }
+    }
+
+    @include mobile {
+      .home__new__slide:nth-child(n + 2) {
+        display: none;
+      }
+    }
+  }
+
+  &__list {
+    width: 474px;
+    height: 315px;
+    @include flexbox($wrap: wrap);
+    gap: 3px;
+
+    @include tab {
+      width: 100%;
+      justify-content: space-between;
+      height: 460px;
+    }
+    @include minTab {
+      height: 320px;
+    }
+    @include mobile {
+      width: 100%;
+      height: 100%;
+      justify-content: space-between;
+    }
+  }
+
+  &__item {
+    width: 156px;
+    height: 156px;
+    position: relative;
+
+    @include tab {
+      flex-basis: 32%;
+      height: 220px;
+    }
+    @include minTab {
+      height: 150px;
+    }
+
+    @include mobile {
+      margin-top: rem(10px);
+      flex-basis: 47%;
+    }
+
+    &--wrap {
+      cursor: pointer;
+      &:hover .home__new__item--detail,
+      &:focus .home__new__item--detail {
+        opacity: 1;
+      }
+
+      &:hover + .singer,
+      &:focus + .singer {
+        display: none;
+      }
+    }
+
+    .singer {
+      @include paddingX(15px);
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    & a:not(:nth-child(4)):hover {
+      text-decoration: underline;
+    }
+
+    &--thumb img {
+      width: 100%;
+      height: 100%;
+      @include pos;
+      top: 0;
+      left: 0;
+      object-fit: cover;
+    }
+
+    .new-album__inner {
+      position: relative;
+      left: 0;
+      transition: all 0.8s ease-in-out;
+    }
+
+    /* 마우스오버 레이어 */
+    &--detail {
+      width: 100%;
+      height: 100%;
+      @include pos;
+      top: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.7);
+      text-align: center;
+      font-size: 12px;
+      transition: all 0.4s;
+      opacity: 0;
+      @include paddingX(12px);
+
+      & a {
+        display: block;
+      }
+
+      & > a:first-child {
+        margin-top: 50px;
+        margin-bottom: 5px;
+        font-size: 13px;
+      }
+    }
+  }
+}
+
+.slide-btn {
+  color: #000;
+}
+
+.singer {
+  width: 100%;
+  height: 30px;
+  @include pos;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  text-align: center;
+  font-size: 12px;
+  line-height: 2.5;
+}
+
+.play-button a {
+  display: block;
+  width: 40px;
+  height: 40px;
+  @include pos;
+  right: 10px;
+  bottom: 10px;
+  z-index: 1;
+  background: url("/assets/images/bg_btn.png") no-repeat 0px -276px;
+  @include flexbox($justify: center, $items: center);
+
+  &:hover {
+    background: url("/assets/images/bg_btn.png") no-repeat 0px -318px;
+  }
+}
+
+/* 아티스트 영역 */
+.home__artist {
+  margin-left: 8px;
+  width: 236px;
+
+  @include tab {
+    display: none;
+  }
+
+  @include mobile {
+    display: none;
+  }
+  &__wrap {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__control {
+    float: right;
+    margin-bottom: 5px;
+
+    &__indicator {
+      @include removeBtnStyle;
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border: 1px solid $borderDarkGray;
+      border-radius: 50%;
+    }
+
+    .button-pause {
+      @include removeBtnStyle;
+      width: 16px;
+      height: 16px;
+      background: url("/assets/images/bg_btn.png") no-repeat left -171px;
+      transform: translateY(3px);
+      margin-left: 5px;
+    }
+  }
+
+  &__inner {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  &__list {
+    @include flexbox;
+    border: 1px solid $borderLightGray;
+    position: relative;
+  }
+}
+
+/* 로그인 & 광고 영역 */
+.home__login {
+  width: rem(280px);
+  margin-left: rem(8px);
+  margin-top: rem(27px);
+
+  @include tab {
+    width: 100%;
+    margin-left: 0;
+    margin-top: rem(16px);
+  }
+  @include minTab {
+    margin-top: rem(10px);
+  }
+  @include mobile {
+    display: none;
+  }
+
+  &--login {
+    @include paddingX(17px);
+    @include paddingY(25px);
+    background: $accent-background;
+    border: 1px solid $borderLightGray;
+    color: $secondary-font;
+    margin-bottom: 8px;
+
+    @include tab {
+      display: none;
+    }
+  }
+
+  &--ad {
+    width: 280px;
+    height: 190px;
+
+    @include tab {
+      width: 100%;
+      height: 70px;
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      background: $accent-background;
+    }
+
+    & > a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: url("/assets/images/login-ad-image.png") no-repeat 0 0;
+
+      @include tab {
+        background: url("/assets/images/ad-image.png") no-repeat 0 0 / cover;
+      }
+    }
+
+    &__ticket {
+      display: none;
+
+      @include tab {
+        @include flexCenter;
+        @include paddingY(12px);
+        width: rem(140px);
+        flex-flow: column;
+        font-size: rem(20px);
+        background: $accent-green;
+        position: absolute;
+        z-index: 1;
+        left: 0;
+      }
+    }
+
+    &__text {
+      display: none;
+
+      @include tab {
+        display: flex;
+        flex-flow: row wrap;
+        color: $primary-font;
+        align-items: center;
+        background: $accent-background;
+        font-weight: 600;
+        font-size: rem(22px);
+        width: rem(190px);
+        position: absolute;
+        left: rem(150px);
+        top: rem(12px);
+
+        & > span {
+          color: $secondary-font;
+          font-weight: 400;
+          font-size: rem(16px);
+          margin-top: rem(5px);
+        }
+      }
+    }
+  }
+
+  .login--top {
+    @include flexbox($justify: space-between);
+    font-size: rem(11px);
+    margin-bottom: 10px;
+
+    & > a:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .login-button {
+    display: block;
+    width: 100%;
+    line-height: 42px;
+    background-color: $primary-logo-color;
+    color: $white;
+    text-align: center;
+    font-size: rem(14px);
+
+    &:hover {
+      background-color: $primary-color;
+    }
+  }
+}

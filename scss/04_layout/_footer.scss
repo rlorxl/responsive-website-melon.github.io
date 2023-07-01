@@ -1,0 +1,152 @@
+.footer {
+  // 폰트 변경해야함
+  font-family: monospace;
+  border-top: 1px solid $borderDarkGray;
+  background: $accent-background;
+  //   height: rem(170px);
+  height: auto;
+  // 내용 영역
+
+  @include paddingY($paddingY: 18px);
+  &__group {
+    margin: 0 auto;
+  }
+  // 네비게이션
+  &__extra {
+    border-bottom: 1px solid $borderDarkGray;
+    padding-bottom: 15px;
+    &__list {
+      text-align: start;
+      padding-left: 10px;
+      max-width: rem(1010px);
+      margin: 0 auto;
+      @include mobile {
+        width: 100%;
+      }
+    }
+    &__item {
+      margin-right: rem(15px);
+      display: inline-block;
+      @include mobile {
+        margin-right: rem(7px);
+      }
+      @include tab {
+        margin-right: rem(12px);
+      }
+    }
+    &__item-link {
+      padding: 18px 0 15px 0;
+      &:hover {
+        color: $primary-font;
+      }
+      color: $medium-gray;
+      font-weight: 700;
+      font-size: rem(16px);
+      @include tab {
+        font-size: rem(15px);
+      }
+      @include mobile {
+        font-size: rem(14px);
+      }
+    }
+  }
+  // address 영역
+  &__service {
+    &__list {
+      width: rem(1010px);
+      display: flex;
+      flex-flow: row wrap;
+      padding-left: 10px;
+      @include autoMargin;
+      @include tab {
+        width: 100%;
+      }
+      @include mobile {
+        width: 100%;
+      }
+      color: $primary-header;
+      font-size: rem(12px);
+      margin-top: rem(26px);
+    }
+
+    &__item-link {
+      &:hover {
+        padding-bottom: 1px;
+        border-bottom: 1px solid black;
+      }
+    }
+
+    &__item:not(:last-child)::after {
+      content: "";
+      width: 0.5px;
+      height: auto;
+      border: 0.5px solid $borderLightGray;
+      margin: 0 5px 0 5px;
+    }
+
+    &__item:nth-child(2) {
+      color: $black;
+      font-weight: 900;
+    }
+  }
+
+  &__company {
+    margin: 19px 0 54px 0;
+    color: $medium-gray;
+    margin-left: rem(10px);
+    &__info__list {
+      font-size: 11px;
+      width: rem(1010px);
+      display: flex;
+      flex-flow: row wrap;
+      @include autoMargin;
+      @include tab {
+        width: 100%;
+      }
+      @include mobile {
+        width: 100%;
+      }
+    }
+    &__info__item {
+      padding-bottom: 8px;
+      white-space: nowrap;
+    }
+
+    &__info__item:not(:last-child)::after {
+      content: "";
+      width: 0.5px;
+      height: auto;
+      border: 0.5px solid $borderLightGray;
+      margin: 0 5px 0 5px;
+    }
+
+    &__contact {
+      font-size: 11px;
+      width: rem(1010px);
+      display: flex;
+      flex-flow: row wrap;
+      @include autoMargin;
+      @include tab {
+        width: 100%;
+      }
+      @include mobile {
+        width: 100%;
+      }
+      //   @include flexbox;
+      font-size: 11px;
+      &__item {
+        white-space: nowrap;
+      }
+      &__item:not(:last-child)::after {
+        content: "";
+        width: 0.5px;
+        height: auto;
+        border: 0.5px solid $borderLightGray;
+        margin: 0 5px 0 5px;
+      }
+    }
+  }
+}
+
+@include tab {
+}

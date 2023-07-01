@@ -1,0 +1,572 @@
+.genre {
+  padding-top: rem(29px);
+
+  @include tab {
+    @include paddingX(20px);
+  }
+
+  @include mobile {
+    @include paddingX(5px);
+  }
+
+  &__kpop {
+    @include autoMargin;
+    width: rem(1010px);
+    font-size: rem(26px);
+    padding-bottom: rem(10px);
+
+    @include tab {
+      width: 100%;
+      margin-left: rem(20px);
+    }
+  }
+  &__sub {
+    &__list {
+      @include flexbox;
+      @include autoMargin;
+      width: rem(1010px);
+      height: rem(50px);
+      border-top: 1px solid $borderLightGray;
+
+      & > .is-active {
+        border-right: 1px solid $borderLightGray;
+        background: $white;
+        border-bottom: none;
+        color: $primary-logo-color;
+        font-weight: 500;
+      }
+
+      @include tab {
+        width: 100%;
+        font-size: rem(12px);
+      }
+
+      @include mobile {
+        width: 100%;
+        font-size: rem(10px);
+      }
+    }
+    &__item {
+      @include paddingY($paddingY: 13px);
+      @include paddingX($paddingX: 4px);
+      width: rem(126.25px);
+      height: rem(48px);
+      text-align: center;
+      border-bottom: 1px solid $borderLightGray;
+      background: $accent-background;
+
+      &:hover {
+        text-decoration: underline;
+      }
+
+      @include mobile {
+        word-break: break-all;
+      }
+    }
+
+    &__item-link {
+      @include tab {
+        font-size: rem(12px);
+      }
+    }
+
+    &__item-link-slash {
+      @include mobile {
+        white-space: nowrap;
+      }
+    }
+  }
+
+  .new {
+    @include flexbox($justify: space-between);
+    width: rem(1010px);
+    margin: rem(32px) auto 0;
+
+    // 최신앨범
+    @include tab {
+      @include flexbox($direction: column);
+      width: 100%;
+    }
+    @include mobile {
+      @include flexbox($direction: column);
+      width: 100%;
+    }
+    &__album {
+      &__list {
+        width: rem(671px);
+        @include flexbox($justify: space-between);
+
+        @include tab {
+          width: 100%;
+        }
+
+        @include mobile {
+          width: 100%;
+        }
+      }
+      &__item {
+        position: relative;
+
+        @include tab {
+          @include marginY(10px);
+          width: 33.3%;
+          margin-left: rem(10px);
+        }
+
+        @include mobile {
+          &:nth-child(3) {
+            display: none;
+          }
+
+          width: 50%;
+        }
+      }
+
+      &__item-img > img {
+        width: rem(217px);
+        height: rem(217px);
+
+        @include tab {
+          width: 100%;
+          height: auto;
+        }
+      }
+
+      &__item-group {
+        @include flexbox($direction: column);
+        position: absolute;
+        bottom: rem(10px);
+        left: rem(10px);
+        color: $accent-background;
+        width: 100%;
+
+        @include tab {
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          width: 80%;
+          padding: rem(13px);
+        }
+
+        @include mobile {
+          padding: rem(14px);
+          left: 0;
+          bottom: 0;
+        }
+      }
+
+      &__item-title {
+        margin-bottom: rem(7px);
+        font-size: rem(16px);
+        display: block;
+        width: 90%;
+
+        @include tab {
+          font-size: rem(20px);
+          width: 80%;
+        }
+      }
+
+      &__item-link {
+        position: absolute;
+        top: rem(20px);
+        right: rem(20px);
+        display: inline-block;
+        width: rem(36px);
+        height: rem(43px);
+        background: url(../../assets/images/button_icons_sprite2.png) no-repeat
+          55% 40%;
+
+        @include tab {
+          background: url(../../assets/images/button_icons_sprite2.png)
+            no-repeat 87% 0%;
+        }
+      }
+
+      &__item-title--link {
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+      &__item-singer {
+        font-size: rem(13px);
+        width: 90%;
+        @include tab {
+          font-size: rem(16px);
+        }
+      }
+
+      &__item-opacity {
+        @include flexbox($direction: column);
+        width: rem(215px);
+        height: rem(60px);
+        background: rgba(0, 0, 0, 0.5);
+        bottom: rem(10px);
+        left: rem(10px);
+        position: absolute;
+        left: 0;
+        bottom: 0;
+
+        @include tab {
+          height: rem(80px);
+          width: 100%;
+          left: 0;
+          bottom: 0;
+        }
+      }
+    }
+    &__album-header {
+      font-size: rem(20px);
+      margin-bottom: rem(10px);
+      color: $primary-font;
+
+      @include tab {
+        margin-left: rem(10px);
+      }
+    }
+
+    &__album-header-more {
+      display: inline-block;
+
+      @include mobile {
+        display: block;
+        color: black;
+      }
+    }
+
+    // 오늘의 추천음악
+    &__palylist-wrapper {
+      position: relative;
+    }
+
+    &__playlist-link-group {
+      @include tab {
+        position: relative;
+        width: rem(1010px);
+        min-width: 66.6%;
+      }
+    }
+
+    &__palylist__group {
+      position: relative;
+      width: 100%;
+    }
+
+    &__playlist-header {
+      font-size: rem(20px);
+      margin-bottom: rem(10px);
+      color: $primary-font;
+
+      @include tab {
+        margin-left: rem(10px);
+        margin-top: rem(10px);
+      }
+    }
+
+    &__playlist-img {
+      width: rem(319px);
+      max-height: rem(217px);
+      overflow: hidden;
+
+      @include tab {
+        width: 100%;
+        height: 100%;
+        padding: 0 rem(10px);
+        object-fit: cover;
+      }
+
+      & > img {
+        @include tab {
+          width: 66%;
+        }
+
+        @include mobile {
+          width: 100%;
+        }
+      }
+    }
+
+    &__playlist-context-des {
+      display: none;
+
+      @include tab {
+        @include ellipsisLine($webClamp: 4);
+        position: absolute;
+        font-size: rem(14px);
+        width: 30%;
+        top: rem(75px);
+        right: 2%;
+        line-height: 1.7;
+        word-wrap: break-word;
+        color: $light-gray;
+      }
+
+      @include mobile {
+        display: none;
+      }
+    }
+
+    &__playlist-opacity {
+      width: rem(321px);
+      height: rem(217px);
+      background: rgba(0, 0, 0, 0.4);
+      bottom: rem(10px);
+      left: 0;
+      bottom: 0;
+      position: absolute;
+
+      @include tab {
+        position: absolute;
+        top: 0;
+        width: 64%;
+        height: 100%;
+        margin: 0 rem(10px);
+      }
+
+      @include mobile {
+        width: 95%;
+      }
+    }
+
+    &__playlist {
+      position: relative;
+
+      @include tab {
+        margin-top: rem(10px);
+      }
+
+      @include mobile {
+        margin-top: rem(10px);
+      }
+
+      &__links {
+        @include tab {
+          position: absolute;
+          right: 0;
+          top: 0;
+          width: 100%;
+          margin: 0 rem(5px);
+        }
+      }
+      &__links-dj {
+        position: absolute;
+        top: rem(25px);
+        left: rem(15px);
+        font-weight: 400;
+        color: $accent-background;
+
+        @include tab {
+          top: rem(30px);
+          left: 5%;
+        }
+
+        @include mobile {
+          left: rem(10px);
+          top: 0;
+          padding: rem(13px);
+        }
+      }
+
+      &__links-dj-name {
+        &:hover {
+          border-bottom: 2px solid $accent-background;
+        }
+      }
+
+      &__links-dj-em {
+        color: #00cd3c;
+        margin-right: rem(4px);
+      }
+
+      &__links-title {
+        position: absolute;
+        top: rem(135px);
+        color: $accent-background;
+        font-size: rem(16px);
+        font-weight: 400;
+        margin: 0 rem(8px);
+
+        &:hover {
+          text-decoration: underline;
+        }
+
+        @include tab {
+          @include ellipsisLine;
+          width: 30%;
+          color: $medium-gray;
+          left: 67%;
+          top: 10px;
+          white-space: normal;
+          line-height: 1.7;
+          word-wrap: break-word;
+        }
+
+        @include mobile {
+          @include ellipsisLine($webClamp: 1);
+          position: absolute;
+          width: 62%;
+          top: 150px;
+          left: 0;
+          color: $accent-background;
+          font-size: rem(13px);
+          font-weight: 300;
+          line-height: 1.7;
+          // @include ellipsis;
+          // position: absolute;
+          // width: 62%;
+          // bottom: 0;
+          // left: 0;
+          // height: 20px;
+        }
+      }
+
+      &__links__hash-group {
+        @include tab {
+          position: absolute;
+          top: rem(220px);
+          left: 66%;
+        }
+
+        @include mobile {
+          left: 8%;
+          top: rem(215px);
+        }
+      }
+
+      &__links-hash1 {
+        position: absolute;
+        bottom: rem(10px);
+        left: rem(15px);
+        color: $accent-background;
+        border: 1px solid $accent-background;
+        border-radius: rem(15px);
+        width: rem(50px);
+        height: rem(28px);
+        padding: 7px 9px;
+        font-size: rem(12px);
+
+        &:hover {
+          color: $borderDarkGray;
+          border: 1px solid $borderDarkGray;
+        }
+
+        @include tab {
+          color: $light-gray;
+          border: 1px solid $light-gray;
+
+          &:hover {
+            color: $medium-gray;
+            border: 1px solid $medium-gray;
+          }
+        }
+
+        @include mobile {
+          color: $light-gray;
+          border: 1px solid $light-gray;
+          &:hover {
+            color: $medium-gray;
+            border: 1px solid $medium-gray;
+          }
+        }
+      }
+
+      &__links-hash2 {
+        position: absolute;
+        bottom: rem(10px);
+        left: rem(70px);
+        color: $accent-background;
+        border: 1px solid $accent-background;
+        border-radius: rem(15px);
+        width: rem(50px);
+        height: rem(28px);
+        padding: 7px 9px;
+        font-size: rem(12px);
+
+        &:hover {
+          color: $borderDarkGray;
+          border: 1px solid $borderDarkGray;
+        }
+
+        @include tab {
+          color: $light-gray;
+          border: 1px solid $light-gray;
+          &:hover {
+            color: $medium-gray;
+            border: 1px solid $medium-gray;
+          }
+        }
+      }
+    }
+  }
+}
+
+.music {
+  &__category {
+    &__list {
+      @include flexbox;
+      @include autoMargin;
+      width: rem(1010px);
+      margin-top: rem(50px);
+
+      & > .is-active {
+        border-bottom: none;
+        background: $white;
+      }
+      @include tab {
+        width: 100%;
+      }
+    }
+
+    &__item {
+      width: 20%;
+      height: rem(48px);
+      text-align: center;
+      padding: rem(14px) rem(4px);
+      border: 1px solid $borderLightGray;
+      background: $accent-background;
+
+      &:nth-child(2n) {
+        border-right: none;
+        border-left: none;
+      }
+
+      @include tab {
+        font-size: rem(12px);
+      }
+
+      @include mobile {
+        font-size: rem(10px);
+      }
+    }
+  }
+}
+
+.new-chart__pagenation {
+  @include flexbox($justify: center);
+  text-align: center;
+  transform: translateY(-40px);
+
+  &__list {
+    @include flexbox($justify: space-between);
+    width: 30%;
+    font-size: rem(14px);
+    color: $medium-gray;
+    transform: translateX(10px);
+
+    @include tab {
+      width: 40%;
+    }
+
+    @include mobile {
+      width: 50%;
+    }
+  }
+
+  &__button {
+    margin-left: rem(30px);
+    background-color: transparent;
+    border: none;
+    color: $light-gray;
+  }
+}

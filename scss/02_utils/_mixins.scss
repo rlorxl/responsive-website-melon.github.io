@@ -1,0 +1,379 @@
+@use "sass:math";
+
+// padding 관련 믹스인
+@mixin paddingX($paddingX: 0) {
+  padding-left: rem($paddingX);
+  padding-right: rem($paddingX);
+}
+
+@mixin paddingY($paddingY: 0) {
+  padding-top: rem($paddingY);
+  padding-bottom: rem($paddingY);
+}
+
+// margin 관련 믹스인
+@mixin autoMargin($marginX: auto) {
+  margin-left: $marginX;
+  margin-right: $marginX;
+}
+
+@mixin marginX($marginX: 0) {
+  margin-left: rem($marginX);
+  margin-right: rem($marginX);
+}
+
+@mixin marginY($marginY: 0) {
+  margin-top: rem($marginY);
+  margin-bottom: rem($marginY);
+}
+
+// 박스의 최소 및 최대 너비를 설정하기 위한 믹스인
+@mixin boxSizeMinMax($min: 768px, $max: 1200px) {
+  min-width: $min;
+  max-width: $max;
+  @include autoMargin;
+}
+
+// flex 박스 믹스인
+@mixin flexbox(
+  $direction: row,
+  $justify: flex-start,
+  $items: stretch,
+  $wrap: nowrap
+) {
+  display: flex;
+  flex-flow: $direction $wrap;
+  justify-content: $justify;
+  align-items: $items;
+}
+
+@mixin pos($position: absolute) {
+  position: $position;
+}
+
+@mixin flexCenter($dp: flex, $jc: center, $ai: center) {
+  display: $dp;
+  justify-content: $jc;
+  align-items: $ai;
+}
+
+// 이미지 중앙 정렬 (50$)
+@mixin centerTranslateY($percent: -50%) {
+  top: 50%;
+  transform: translateY($percent);
+}
+
+@mixin centerTranslateX($percent: -50%) {
+  left: 50%;
+  transform: translateX($percent);
+}
+
+// iframe 비율
+@mixin respondIframe($w: 16, $h: 9) {
+  position: relative;
+  padding-top: math.div($h, $w) * 100%;
+  height: 0 !important;
+
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+// 버튼 스타일 제거
+@mixin removeBtnStyle(
+  $webkit: none,
+  $moz: none,
+  $appear: none,
+  $border: none,
+  $bg: transparent,
+  $pd: 0
+) {
+  -webkit-appearance: $webkit;
+  -moz-appearance: $moz;
+  appearance: $appear;
+  border: $border;
+  background: $bg;
+  padding: $pd;
+}
+
+// ellipsis
+@mixin ellipsis($over: hidden, $to: ellipsis, $ws: nowrap) {
+  overflow: $over;
+  text-overflow: $to;
+  white-space: $ws;
+}
+
+@mixin ellipsisLine(
+  $over: hidden,
+  $to: ellipsis,
+  $dp: -webkit-box,
+  $webClamp: 2,
+  $webOrient: vertical
+) {
+  overflow: $over;
+  text-overflow: $to;
+  display: $dp;
+  -webkit-line-clamp: $webClamp;
+  -webkit-box-orient: $webOrient;
+}
+
+// hover transition
+@mixin hoverScale(
+  $content: "",
+  $pos: absolute,
+  $dp: block,
+  $t: 0,
+  $l: 0,
+  $h: 100%,
+  $w: 100%,
+  $trans: transform 0.5s
+) {
+  content: $content;
+  position: $pos;
+  display: $dp;
+  top: $t;
+  left: $l;
+  height: $h;
+  width: $w;
+  transition: $trans;
+}
+
+//animation
+@mixin keyframe($animation_name) {
+  @keyframes #{$animation_name} {
+    @content;
+  }
+}
+
+@mixin animation(
+  $animation: name,
+  $duration: 0s,
+  $timing: ease,
+  $delay: 0s,
+  $count: 1,
+  $direction: normal,
+  $fillmode: none
+) {
+  animation-name: $animation;
+  animation-duration: $duration;
+  animation-timing-function: $timing;
+  animation-delay: $delay;
+  animation-iteration-count: $count;
+  animation-direction: $direction;
+  animation-fill-mode: $fillmode;
+}
+
+@mixin contentBorderLeft(
+  $c: "",
+  $pos: absolute,
+  $dp: block,
+  $bl: 1px solid $borderLightGray,
+  $w: 100%,
+  $h: rem(14px),
+  $t: translateX(-14px)
+) {
+  content: $c;
+  position: $pos;
+  display: $dp;
+  border-left: $bl;
+  width: $w;
+  height: $h;
+  transform: $t;
+}
+
+// dj card style
+@mixin djCardList($d: flex, $g: rem(20px)) {
+  display: $d;
+  gap: $g;
+}
+
+@mixin djCardImg($w: 100%, $h: rem(240px)) {
+  width: $w;
+  height: $h;
+}
+
+@mixin djCardDesc($bt: 1px solid $borderLightGray, $pos: relative) {
+  border-top: $bt;
+  position: $pos;
+}
+
+@mixin djCardDj($fz: rem(12px), $c: $primary-font, $pos: relative) {
+  font-size: $fz;
+  color: $c;
+  position: $pos;
+}
+
+@mixin djCardTitle(
+  $dp: block,
+  $fz: rem(14px),
+  $c: $primary-font,
+  $mb: rem(10px),
+  $h: rem(60px),
+  $w: rem(200px),
+  $lh: rem(20px)
+) {
+  display: $dp;
+  font-size: $fz;
+  color: $c;
+  margin-bottom: $mb;
+  height: $h;
+  width: $w;
+  line-height: $lh;
+}
+
+@mixin djCardLike(
+  $c: "",
+  $dp: inline-block,
+  $bg:
+    url("https://cdnimg.melon.co.kr/resource/image/web/common/bullet_icons_sprite_20201112.png")
+    no-repeat -69px -14px,
+  $w: rem(14px),
+  $h: rem(12px),
+  $mr: rem(7px),
+  $va: text-top
+) {
+  content: "";
+  display: $dp;
+  background: $bg;
+  width: $w;
+  height: $h;
+  margin-right: $mr;
+  vertical-align: $va;
+}
+
+@mixin djCardHash(
+  $dp: inline-block,
+  $fz: rem(12px),
+  $c: $secondary-font,
+  $b: 1px solid $borderDarkGray,
+  $bdrd: rem(15px),
+  $mr: rem(5px)
+) {
+  display: $dp;
+  font-size: $fz;
+  color: $c;
+  border: $b;
+  border-radius: $bdrd;
+  margin-right: $mr;
+}
+
+@mixin djCardProfile(
+  $dp: block,
+  $w: rem(45px),
+  $h: rem(45px),
+  $bdrd: 50%,
+  $b: 1px solid $borderLightGray,
+  $pos: absolute,
+  $t: rem(-25px),
+  $r: rem(20px)
+) {
+  display: $dp;
+  width: $w;
+  height: $h;
+  border-radius: $bdrd;
+  border: $b;
+  position: $pos;
+  top: $t;
+  right: $r;
+}
+
+@mixin djCardListNum(
+  $fz: rem(12px),
+  $c: $secondary-font,
+  $pos: relative,
+  $ml: rem(12px)
+) {
+  font-size: $fz;
+  color: $c;
+  position: $pos;
+  margin-left: $ml;
+}
+
+@mixin djCardListNumBefore(
+  $cont: "",
+  $dp: block,
+  $bl: 1px solid $secondary-font,
+  $h: rem(10px),
+  $mr: rem(10px),
+  $r: rem(20px),
+  $t: rem(2px),
+  $pos: absolute
+) {
+  content: $cont;
+  display: $dp;
+  border-left: $bl;
+  height: $h;
+  margin-right: $mr;
+  right: $r;
+  top: $t;
+  position: $pos;
+}
+
+@mixin djMark(
+  $c: "",
+  $dp: inline-block,
+  $w: rem(15px),
+  $h: rem(15px),
+  $pos: absolute,
+  $r: rem(-18px),
+  $t: 50%,
+  $trans: translateY(-50%)
+) {
+  content: $c;
+  display: $dp;
+  width: $w;
+  height: $h;
+  position: $pos;
+  right: $r;
+  top: $t;
+  transform: $trans;
+}
+
+// slide menu
+@mixin slideItemBefore(
+  $cont: "",
+  $pos: absolute,
+  $w: rem(20px),
+  $h: rem(20px),
+  $l: rem(15px)
+) {
+  content: $cont;
+  position: $pos;
+  width: $w;
+  height: $h;
+  left: $l;
+}
+
+// rising list
+@mixin rising(
+  $cont: "",
+  $pos: absolute,
+  $w: rem(10px),
+  $h: rem(10px),
+  $r: rem(14px)
+) {
+  content: $cont;
+  position: $pos;
+  width: $w;
+  height: $h;
+  right: $r;
+}
+
+@mixin risingBefore(
+  $cont: "",
+  $pos: absolute,
+  $w: rem(10px),
+  $h: rem(10px),
+  $r: rem(2px),
+  $t: rem(1px)
+) {
+  content: $cont;
+  position: $pos;
+  width: $w;
+  height: $h;
+  right: $r;
+  top: $t;
+}
